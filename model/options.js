@@ -11,7 +11,10 @@ const optionSchema = new mongoose.Schema({
         ref : Question
     },
     link_to_vote : String,
-    votes : Number
+    votes :{
+        type : Number,
+        default : 0
+    }
 },{
     timestamps : true
 });

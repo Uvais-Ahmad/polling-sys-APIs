@@ -10,7 +10,7 @@ module.exports.index = function( req , res ){
     })
 }
 
-
+// it create a question take only single value "content" in request
 module.exports.createQuestion = async function ( req , res ) {
 
     let ques = await Question.create(req.body);
