@@ -43,3 +43,28 @@ module.exports.createOption = async function( req , res ){
         console.log('Error while creating option ',err);
     }
 }
+
+
+module.exports.addVote = async function( req , res ){
+    try{
+        let option = await Option.findByIdAndUpdate(req.params.id , { $inc : {'votes':1} });
+
+        if(option){
+            return res.status(200).json({
+                message : "Vote Added",
+                data : {
+                    option : option
+                }
+            });
+        }
+        else{
+            return res.status(404).json({
+                message : "File Not found "
+            })
+        }
+
+    }
+    catch(err){
+        console.log('Error while add Votes ',err);
+    }
+}
