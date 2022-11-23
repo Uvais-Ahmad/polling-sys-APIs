@@ -1,3 +1,6 @@
+const Question = require('../../model/questions');
+const Option = require('../../model/options');
+
 module.exports.index = function( req , res ){
     return res.status(200).json({
         message : 'List of all question',
@@ -8,16 +11,26 @@ module.exports.index = function( req , res ){
 }
 
 
-module.exports.createQuestion = function ( req , res ) {
+module.exports.createQuestion = async function ( req , res ) {
+
+    let ques = await Question.create(req.body);
+    console.log("Qeus is : ".ques);
+    if(ques){
+        return res.status(200).json({
+
+            message : 'Question created',
+            data : {
+                question : ques
+            }
+        })
+    }
+    else{
+        
+        return res.status(500).json({
+            message : 'Server Error , Question not created',
+            
+        })
+    }
 
     
-
-    let ques = req.body;
-    console.log("Req body : ",ques)
-    return res.status(200).json({
-        message : 'form Data received',
-        data : {
-            question : ques
-        }
-    })
 }

@@ -7,7 +7,7 @@ const optionSchema = new mongoose.Schema({
         required : true
     },
     quesId : {
-        type : mongoose.Schema.Types.ObjectId(),
+        type : mongoose.Schema.Types.ObjectId,
         ref : Question
     },
     link_to_vote : String,

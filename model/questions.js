@@ -6,7 +6,7 @@ const quesSchema = new mongoose.Schema({
         required : true
     },
     options : [{
-        type : mongoose.Schema.Types.ObjectId(),
+        type : mongoose.Schema.Types.ObjectId,
         ref : 'Option'
     }],
 },{
