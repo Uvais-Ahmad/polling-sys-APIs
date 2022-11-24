@@ -10,5 +10,7 @@ router.get('/:id',quesCont.show);
 // it create a new question
 router.post('/create',quesCont.create);
 
+router.delete('/:id/delete',quesCont.destroy);
+
 
 module.exports = router;

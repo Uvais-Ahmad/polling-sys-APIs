@@ -51,3 +51,38 @@ module.exports.create = async function ( req , res ) {
         console.log('Error in creating question ',err);
     }
 }
+
+
+module.exports.destroy = async function( req , res ){
+    
+    let quesId = req.params.id;
+
+    let question = await Question.findById(quesId).populate('options');
+
+    if(question){
+        // check that all optio n have zero vote if yes we can delete a question
+        let options = question.options;
+        for( option of options ){
+            // check each option should have zero vote 
+            if(option.votes !== 0 ){
+                // i.e. option have more than 0 vote
+                return res.status(200).json({
+                    message : "Question can't be deleted , its any one option have some votes"
+                })
+            }
+        }
+        await question.remove();
+        // And delete all option associated with Question
+        await Option.deleteMany({quesId : quesId });
+        return res.status(200).json({
+            message : "Question with all associated option deleted",
+            question
+        })
+    }
+    else{
+        return res.status(404).json({
+            message : "Question Not found"
+        })
+    }
+
+}

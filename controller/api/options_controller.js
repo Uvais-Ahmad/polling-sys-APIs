@@ -68,3 +68,33 @@ module.exports.addVote = async function( req , res ){
         console.log('Error while add Votes ',err);
     }
 }
+
+module.exports.destroy = async function ( req , res ){
+    
+    
+    // let quesId = req.params.id;
+    let optionId = req.params.id;
+    console.log('Option id ',optionId)
+    let option = await Option.findById(optionId);
+    console.log("Option ",option)
+    if(option ){
+        if(option.votes !== 0 ){
+            // i.e. option have more than 0 vote
+            return res.status(200).json({
+                message : "Question can't be deleted , its have some votes"
+            })
+        }
+        else{
+            await option.remove();
+            return res.status(200).json({
+                message : "option is deleted",
+                option
+            })
+        }
+    }
+    else{
+        return res.status(404).json({
+            message : "Option Not found"
+        })
+    }
+}
