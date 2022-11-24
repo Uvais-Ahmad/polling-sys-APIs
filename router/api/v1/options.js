@@ -6,7 +6,7 @@ const optionCont = require('../../../controller/api/options_controller');
 
 // It create a option and add this inside the question which QuesId is given 
 router.post('/:id/create',optionCont.createOption)
-router.post('/:id/add-vote',optionCont.addVote);
+router.put('/:id/add-vote',optionCont.addVote);
 
 
 
