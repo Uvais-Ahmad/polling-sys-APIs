@@ -29,27 +29,29 @@ using Express, Nodejs, MongoDB.
 ## Routes & URL
 
 - **https://polling-sys1.onrender.com/api/v1/questions/create**
-  <p> To create a new question hit the following URL **we need to pass a urlEncoded form value "content" while requesting** with a post request:</p>
+  <p> To create a new question hit the following URL with a post request:</p>
+  **we need to pass a urlEncoded form value "content" while requesting**
   
 
 - **https://polling-sys1.onrender.com/api/v1/options/:id/create**
   <p>To create a new option for a question hit the following URL with a post request:</p>
-  
+  **we need to pass a "id" of question to create option on that ques**
 
 - **https://polling-sys1.onrender.com/api/v1/options/:id/addVote**
   <p>To increment the count of votes on an option, hit the following URL with a get request:</p>
-  
+  **we need to pass a "id" of option to addVote on options**
 
 - **https://polling-sys1.onrender.com/api/v1/questions/:id**
   <p> To view a question and it’s options, hit the following URL with a get request:</p>
-  
+  **we need to pass a "id" of question to show ques with all option on that ques**
 
 - **https://polling-sys1.onrender.com/api/v1/options/:id/delete**
   <p> To delete an option, hit the following URL with a delete request: </p>
-  
+  **we need to pass a "id" of option to delete option**
 
 - **https://polling-sys1.onrender.com/api/v1/questions/:id/delete**
   <p> To delete a question, hit the following URL with a delete request: </p>
+  **we need to pass a "id" of question to delete question**
   
   <br/>
 
