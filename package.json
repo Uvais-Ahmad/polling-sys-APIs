@@ -4,7 +4,8 @@
   "description": "this is an API based Polling system . for create qustion and its option we create its api only",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Uvais Ahmad (ninja)",
   "license": "ISC",
