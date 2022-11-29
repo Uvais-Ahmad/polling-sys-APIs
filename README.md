@@ -29,7 +29,7 @@ using Express, Nodejs, MongoDB.
 ## Routes & URL
 
 - **https://polling-sys1.onrender.com/api/v1/questions/create**
-  <p> To create a new question hit the following URL with a post request:</p>
+  <p> To create a new question hit the following URL , ***we need to pass a urlEncoded form value "content" while requesting.*** with a post request:</p>
   
 
 - **https://polling-sys1.onrender.com/api/v1/options/:id/create**
